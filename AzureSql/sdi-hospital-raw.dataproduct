@@ -1,0 +1,1138 @@
+<dataProduct xmlns="https://github.com/Region-Skane-SDI/diml/dataproduct" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://github.com/Region-Skane-SDI/diml/dataproduct https://raw.githubusercontent.com/Region-Skane-SDI/diml-schemas/main/v0/dataproduct.xsd" dimlId="https://raw.githubusercontent.com/Region-Skane-SDI/sdi-hospital/main/AzureSql/sdi-hospital-raw.dataproduct" targetPlatform="azsqlserver">
+    <names>
+        <name language="sv">SDI Hospital</name>
+    </names>
+    <descriptions>
+        <description type="Plain" language="sv">En rådataprodukt av källan SDI Hospital.</description>
+    </descriptions>
+    <dcat dcatDataTheme="heal" dcatAccessRights="nonPublic" dcatUpdateFrequency="other" dcatAvailability="experimental" dcatStatus="underDevelopment" />
+    <dataInputs>
+        <dataInput id="src" dimlId="https://raw.githubusercontent.com/Region-Skane-SDI/sdi-hospital/main/sdi-hospital.datasource" channelId="sql" />
+    </dataInputs>
+    <tables>
+        <table id="diagnosis">
+            <names>
+                <name language="sv">diagnosis</name>
+            </names>
+            <columns>
+                <column id="diagnosis_id">
+                    <names>
+                        <name language="sv">diagnosis_id</name>
+                    </names>
+                    <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/diagnosis_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="diagnosis_category_code">
+                    <names>
+                        <name language="sv">diagnosis_category_code</name>
+                    </names>
+                    <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/diagnosis_category_code" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="diagnosis_code">
+                    <names>
+                        <name language="sv">diagnosis_code</name>
+                    </names>
+                    <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/diagnosis_code" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="diagnosis_full_code">
+                    <names>
+                        <name language="sv">diagnosis_full_code</name>
+                    </names>
+                    <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/diagnosis_full_code" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="abbreviated_description">
+                    <names>
+                        <name language="sv">abbreviated_description</name>
+                    </names>
+                    <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/abbreviated_description" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="full description">
+                    <names>
+                        <name language="sv">full description</name>
+                    </names>
+                    <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/full description" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="category title">
+                    <names>
+                        <name language="sv">category title</name>
+                    </names>
+                    <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/category title" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/diagnosis/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+        </table>
+        <table id="encounters">
+            <names>
+                <name language="sv">encounters</name>
+            </names>
+            <businessKey>
+                <value>encounter_id</value>
+            </businessKey>
+            <columns>
+                <column id="encounter_id">
+                    <names>
+                        <name language="sv">encounter_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/encounter_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="patient_id">
+                    <names>
+                        <name language="sv">patient_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/patient_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="encounter_status">
+                    <names>
+                        <name language="sv">encounter_status</name>
+                    </names>
+                    <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/encounter_status" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="order_date">
+                    <names>
+                        <name language="sv">order_date</name>
+                    </names>
+                    <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/order_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="required_date">
+                    <names>
+                        <name language="sv">required_date</name>
+                    </names>
+                    <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/required_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="shipped_date">
+                    <names>
+                        <name language="sv">shipped_date</name>
+                    </names>
+                    <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/shipped_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="hospital_id">
+                    <names>
+                        <name language="sv">hospital_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/hospital_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="staff_id">
+                    <names>
+                        <name language="sv">staff_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/staff_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+            <tableRelations>
+                <tableRelation id="relation1" targetTable="healthcare/patients">
+                    <relationColumns columnName="patient_id" targetColumnName="patient_id" />
+                </tableRelation>
+                <tableRelation id="relation2" targetTable="healthcare/hospitals">
+                    <relationColumns columnName="hospital_id" targetColumnName="patient_id" />
+                </tableRelation>
+                <tableRelation id="relation3" targetTable="healthcare/staffs">
+                    <relationColumns columnName="staff_id" targetColumnName="patient_id" />
+                </tableRelation>
+            </tableRelations>
+        </table>
+        <table id="encounters_items">
+            <names>
+                <name language="sv">encounters_items</name>
+            </names>
+            <businessKey>
+                <value>encounter_id</value>
+                <value>item_id</value>
+            </businessKey>
+            <columns>
+                <column id="encounter_id">
+                    <names>
+                        <name language="sv">encounter_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/encounter_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="item_id">
+                    <names>
+                        <name language="sv">item_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/item_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="drug_id">
+                    <names>
+                        <name language="sv">drug_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/drug_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="quantity">
+                    <names>
+                        <name language="sv">quantity</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/quantity" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="list_price">
+                    <names>
+                        <name language="sv">list_price</name>
+                    </names>
+                    <dimlDataType id="decimal" precision="10" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/list_price" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="discount">
+                    <names>
+                        <name language="sv">discount</name>
+                    </names>
+                    <dimlDataType id="decimal" precision="4" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/discount" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/encounters_items/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+            <tableRelations>
+                <tableRelation id="relation1" targetTable="healthcare/encounters">
+                    <relationColumns columnName="encounter_id" targetColumnName="encounter_id" />
+                </tableRelation>
+                <tableRelation id="relation2" targetTable="medication/drugs">
+                    <relationColumns columnName="drug_id" targetColumnName="encounter_id" />
+                </tableRelation>
+            </tableRelations>
+        </table>
+        <table id="hospitals">
+            <names>
+                <name language="sv">hospitals</name>
+            </names>
+            <businessKey>
+                <value>hospital_id</value>
+            </businessKey>
+            <columns>
+                <column id="hospital_id">
+                    <names>
+                        <name language="sv">hospital_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/hospital_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="hospital_name">
+                    <names>
+                        <name language="sv">hospital_name</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/hospital_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="phone">
+                    <names>
+                        <name language="sv">phone</name>
+                    </names>
+                    <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/phone" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="email">
+                    <names>
+                        <name language="sv">email</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/email" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="street">
+                    <names>
+                        <name language="sv">street</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/street" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="city">
+                    <names>
+                        <name language="sv">city</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/city" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="state">
+                    <names>
+                        <name language="sv">state</name>
+                    </names>
+                    <dimlDataType id="string" length="10" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/state" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="zip_code">
+                    <names>
+                        <name language="sv">zip_code</name>
+                    </names>
+                    <dimlDataType id="string" length="5" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/zip_code" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/hospitals/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+        </table>
+        <table id="patient_diagnosis">
+            <names>
+                <name language="sv">patient_diagnosis</name>
+            </names>
+            <columns>
+                <column id="patient_diagnosis_id">
+                    <names>
+                        <name language="sv">patient_diagnosis_id</name>
+                    </names>
+                    <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patient_diagnosis/patient_diagnosis_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="patient_id">
+                    <names>
+                        <name language="sv">patient_id</name>
+                    </names>
+                    <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patient_diagnosis/patient_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="diagnosis_id">
+                    <names>
+                        <name language="sv">diagnosis_id</name>
+                    </names>
+                    <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patient_diagnosis/diagnosis_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patient_diagnosis/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patient_diagnosis/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+        </table>
+        <table id="patients">
+            <names>
+                <name language="sv">patients</name>
+            </names>
+            <businessKey>
+                <value>patient_id</value>
+            </businessKey>
+            <columns>
+                <column id="patient_id">
+                    <names>
+                        <name language="sv">patient_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/patient_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="first_name">
+                    <names>
+                        <name language="sv">first_name</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/first_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="last_name">
+                    <names>
+                        <name language="sv">last_name</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/last_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="phone">
+                    <names>
+                        <name language="sv">phone</name>
+                    </names>
+                    <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/phone" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="email">
+                    <names>
+                        <name language="sv">email</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/email" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="street">
+                    <names>
+                        <name language="sv">street</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/street" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="city">
+                    <names>
+                        <name language="sv">city</name>
+                    </names>
+                    <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/city" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="state">
+                    <names>
+                        <name language="sv">state</name>
+                    </names>
+                    <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/state" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="zip_code">
+                    <names>
+                        <name language="sv">zip_code</name>
+                    </names>
+                    <dimlDataType id="string" length="5" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/zip_code" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="social_security_number">
+                    <names>
+                        <name language="sv">social_security_number</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/social_security_number" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/patients/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+        </table>
+        <table id="staffs">
+            <names>
+                <name language="sv">staffs</name>
+            </names>
+            <businessKey>
+                <value>staff_id</value>
+                <value>email</value>
+            </businessKey>
+            <columns>
+                <column id="staff_id">
+                    <names>
+                        <name language="sv">staff_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/staff_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="first_name">
+                    <names>
+                        <name language="sv">first_name</name>
+                    </names>
+                    <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/first_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="last_name">
+                    <names>
+                        <name language="sv">last_name</name>
+                    </names>
+                    <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/last_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="email">
+                    <names>
+                        <name language="sv">email</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/email" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="phone">
+                    <names>
+                        <name language="sv">phone</name>
+                    </names>
+                    <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/phone" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="active">
+                    <names>
+                        <name language="sv">active</name>
+                    </names>
+                    <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/active" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="hospital_id">
+                    <names>
+                        <name language="sv">hospital_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/hospital_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="manager_id">
+                    <names>
+                        <name language="sv">manager_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/manager_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="social_security_number">
+                    <names>
+                        <name language="sv">social_security_number</name>
+                    </names>
+                    <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/social_security_number" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/healthcare/staffs/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+            <tableRelations>
+                <tableRelation id="relation1" targetTable="healthcare/hospitals">
+                    <relationColumns columnName="hospital_id" targetColumnName="hospital_id" />
+                </tableRelation>
+                <tableRelation id="relation2" targetTable="healthcare/staffs">
+                    <relationColumns columnName="staff_id" targetColumnName="hospital_id" />
+                </tableRelation>
+            </tableRelations>
+        </table>
+        <table id="brands">
+            <names>
+                <name language="sv">brands</name>
+            </names>
+            <businessKey>
+                <value>brand_id</value>
+            </businessKey>
+            <columns>
+                <column id="brand_id">
+                    <names>
+                        <name language="sv">brand_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/brands/brand_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="brand_name">
+                    <names>
+                        <name language="sv">brand_name</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/brands/brand_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/brands/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/brands/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+        </table>
+        <table id="categories">
+            <names>
+                <name language="sv">categories</name>
+            </names>
+            <businessKey>
+                <value>category_id</value>
+            </businessKey>
+            <columns>
+                <column id="category_id">
+                    <names>
+                        <name language="sv">category_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/categories/category_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="category_name">
+                    <names>
+                        <name language="sv">category_name</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/categories/category_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/categories/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/categories/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+        </table>
+        <table id="drugs">
+            <names>
+                <name language="sv">drugs</name>
+            </names>
+            <businessKey>
+                <value>drug_id</value>
+            </businessKey>
+            <columns>
+                <column id="drug_id">
+                    <names>
+                        <name language="sv">drug_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/drug_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="drug_name">
+                    <names>
+                        <name language="sv">drug_name</name>
+                    </names>
+                    <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/drug_name" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="brand_id">
+                    <names>
+                        <name language="sv">brand_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/brand_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="category_id">
+                    <names>
+                        <name language="sv">category_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/category_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="model_year">
+                    <names>
+                        <name language="sv">model_year</name>
+                    </names>
+                    <dimlDataType id="smallInteger" unsigned="true" originalDataType="smallint" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/model_year" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="list_price">
+                    <names>
+                        <name language="sv">list_price</name>
+                    </names>
+                    <dimlDataType id="decimal" precision="10" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/list_price" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/drugs/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+            <tableRelations>
+                <tableRelation id="relation1" targetTable="medication/brands">
+                    <relationColumns columnName="brand_id" targetColumnName="brand_id" />
+                </tableRelation>
+                <tableRelation id="relation2" targetTable="medication/categories">
+                    <relationColumns columnName="category_id" targetColumnName="brand_id" />
+                </tableRelation>
+            </tableRelations>
+        </table>
+        <table id="stocks">
+            <names>
+                <name language="sv">stocks</name>
+            </names>
+            <businessKey>
+                <value>hospital_id</value>
+                <value>drug_id</value>
+            </businessKey>
+            <columns>
+                <column id="hospital_id">
+                    <names>
+                        <name language="sv">hospital_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/stocks/hospital_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="drug_id">
+                    <names>
+                        <name language="sv">drug_id</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/stocks/drug_id" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="quantity">
+                    <names>
+                        <name language="sv">quantity</name>
+                    </names>
+                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/stocks/quantity" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="create_date">
+                    <names>
+                        <name language="sv">create_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/stocks/create_date" />
+                        </trait>
+                    </traits>
+                </column>
+                <column id="update_date">
+                    <names>
+                        <name language="sv">update_date</name>
+                    </names>
+                    <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src/medication/stocks/update_date" />
+                        </trait>
+                    </traits>
+                </column>
+            </columns>
+            <tableRelations>
+                <tableRelation id="relation1" targetTable="healthcare/hospitals">
+                    <relationColumns columnName="hospital_id" targetColumnName="hospital_id" />
+                </tableRelation>
+                <tableRelation id="relation2" targetTable="medication/drugs">
+                    <relationColumns columnName="drug_id" targetColumnName="hospital_id" />
+                </tableRelation>
+            </tableRelations>
+        </table>
+    </tables>
+    <dataOutputs>
+        <sqlOutputs>
+            <sqlOutput channelId="sql" sqlOutputType="Tsql" />
+        </sqlOutputs>
+    </dataOutputs>
+    <dataFlow>
+        <dataStages>
+            <dataStage id="Raw" order="1" role="input" materialization="table"></dataStage>
+            <dataStage id="Storage" order="2" role="output" materialization="table" />
+        </dataStages>
+        <dataIngests>
+            <dataIngest id="ingest" dataInputId="src">
+                <tableToTableMappings>
+                    <tableToTableMapping sourceTableId="diagnosis" tableId="diagnosis" />
+                    <tableToTableMapping sourceTableId="encounters" tableId="encounters" />
+                    <tableToTableMapping sourceTableId="encounters_items" tableId="encounters_items" />
+                    <tableToTableMapping sourceTableId="hospitals" tableId="hospitals" />
+                    <tableToTableMapping sourceTableId="patient_diagnosis" tableId="patient_diagnosis" />
+                    <tableToTableMapping sourceTableId="patients" tableId="patients" />
+                    <tableToTableMapping sourceTableId="staffs" tableId="staffs" />
+                    <tableToTableMapping sourceTableId="brands" tableId="brands" />
+                    <tableToTableMapping sourceTableId="categories" tableId="categories" />
+                    <tableToTableMapping sourceTableId="drugs" tableId="drugs" />
+                    <tableToTableMapping sourceTableId="stocks" tableId="stocks" />
+                </tableToTableMappings>
+            </dataIngest>
+        </dataIngests>
+    </dataFlow>
+</dataProduct>
