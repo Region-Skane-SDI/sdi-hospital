@@ -769,56 +769,6 @@
                 </tableRelation>
             </tableRelations>
         </table>
-        <table id="sys/database_firewall_rules">
-            <names>
-                <name language="sv">database_firewall_rules</name>
-            </names>
-            <descriptions />
-            <columns>
-                <column id="id">
-                    <names>
-                        <name language="sv">id</name>
-                    </names>
-                    <descriptions />
-                    <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
-                </column>
-                <column id="name">
-                    <names>
-                        <name language="sv">name</name>
-                    </names>
-                    <descriptions />
-                    <dimlDataType id="string" length="128" format="" isFixedLength="false" isWideChar="true" originalDataType="nvarchar" originalPlatform="tsql" isNullable="false" />
-                </column>
-                <column id="start_ip_address">
-                    <names>
-                        <name language="sv">start_ip_address</name>
-                    </names>
-                    <descriptions />
-                    <dimlDataType id="string" length="45" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
-                </column>
-                <column id="end_ip_address">
-                    <names>
-                        <name language="sv">end_ip_address</name>
-                    </names>
-                    <descriptions />
-                    <dimlDataType id="string" length="45" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
-                </column>
-                <column id="create_date">
-                    <names>
-                        <name language="sv">create_date</name>
-                    </names>
-                    <descriptions />
-                    <dimlDataType id="dateTime" precision="3" originalDataType="datetime" originalPlatform="tsql" isNullable="false" isUtcTime="false" />
-                </column>
-                <column id="modify_date">
-                    <names>
-                        <name language="sv">modify_date</name>
-                    </names>
-                    <descriptions />
-                    <dimlDataType id="dateTime" precision="3" originalDataType="datetime" originalPlatform="tsql" isNullable="false" isUtcTime="false" />
-                </column>
-            </columns>
-        </table>
     </tables>
     <dataOutputs>
         <sqlOutputs>
