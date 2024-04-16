@@ -82,9 +82,6 @@
                 <name language="sv">encounters</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>encounter_id</value>
             </businessKey>
@@ -177,9 +174,6 @@
                 <name language="sv">encounters_items</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>encounter_id</value>
                 <value>item_id</value>
@@ -256,9 +250,6 @@
                 <name language="sv">hospitals</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>hospital_id</value>
             </businessKey>
@@ -340,9 +331,6 @@
                 <name language="sv">patient_diagnosis</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <columns>
                 <column id="patient_diagnosis_id">
                     <names>
@@ -386,9 +374,6 @@
                 <name language="sv">patients</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>patient_id</value>
             </businessKey>
@@ -484,9 +469,6 @@
                 <name language="sv">staffs</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>staff_id</value>
                 <value>email</value>
@@ -584,9 +566,6 @@
                 <name language="sv">brands</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>brand_id</value>
             </businessKey>
@@ -626,9 +605,6 @@
                 <name language="sv">categories</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>category_id</value>
             </businessKey>
@@ -668,9 +644,6 @@
                 <name language="sv">drugs</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>drug_id</value>
             </businessKey>
@@ -746,9 +719,6 @@
                 <name language="sv">stocks</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <businessKey>
                 <value>hospital_id</value>
                 <value>drug_id</value>
@@ -804,9 +774,6 @@
                 <name language="sv">database_firewall_rules</name>
             </names>
             <descriptions />
-            <descriptions>
-                <description type="Plain" language="sv">[placeholder]</description>
-            </descriptions>
             <columns>
                 <column id="id">
                     <names>
