@@ -14,13 +14,13 @@
             <names>
                 <name language="sv">diagnosis</name>
             </names>
-            <descriptons />
+            <descriptions />
             <columns>
                 <column id="diagnosis_id">
                     <names>
                         <name language="sv">diagnosis_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -32,7 +32,7 @@
                     <names>
                         <name language="sv">diagnosis_category_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -44,7 +44,7 @@
                     <names>
                         <name language="sv">diagnosis_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -56,7 +56,7 @@
                     <names>
                         <name language="sv">diagnosis_full_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -68,7 +68,7 @@
                     <names>
                         <name language="sv">abbreviated_description</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -80,7 +80,7 @@
                     <names>
                         <name language="sv">full description</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -92,7 +92,7 @@
                     <names>
                         <name language="sv">category title</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -104,7 +104,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -116,7 +116,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -130,7 +130,7 @@
             <names>
                 <name language="sv">encounters</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>encounter_id</value>
             </businessKey>
@@ -139,7 +139,7 @@
                     <names>
                         <name language="sv">encounter_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -151,7 +151,7 @@
                     <names>
                         <name language="sv">patient_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -163,7 +163,7 @@
                     <names>
                         <name language="sv">encounter_status</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -175,7 +175,7 @@
                     <names>
                         <name language="sv">order_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -187,7 +187,7 @@
                     <names>
                         <name language="sv">required_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -199,7 +199,7 @@
                     <names>
                         <name language="sv">shipped_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -211,7 +211,7 @@
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -223,7 +223,7 @@
                     <names>
                         <name language="sv">staff_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -235,7 +235,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -247,7 +247,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -272,7 +272,7 @@
             <names>
                 <name language="sv">encounters_items</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>encounter_id</value>
                 <value>item_id</value>
@@ -282,7 +282,7 @@
                     <names>
                         <name language="sv">encounter_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -294,7 +294,7 @@
                     <names>
                         <name language="sv">item_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -306,7 +306,7 @@
                     <names>
                         <name language="sv">drug_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -318,7 +318,7 @@
                     <names>
                         <name language="sv">quantity</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -330,7 +330,7 @@
                     <names>
                         <name language="sv">list_price</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="decimal" precision="10" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -342,7 +342,7 @@
                     <names>
                         <name language="sv">discount</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="decimal" precision="4" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -354,7 +354,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -366,7 +366,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -388,7 +388,7 @@
             <names>
                 <name language="sv">hospitals</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>hospital_id</value>
             </businessKey>
@@ -397,7 +397,7 @@
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -409,7 +409,7 @@
                     <names>
                         <name language="sv">hospital_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -421,7 +421,7 @@
                     <names>
                         <name language="sv">phone</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -433,7 +433,7 @@
                     <names>
                         <name language="sv">email</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -445,7 +445,7 @@
                     <names>
                         <name language="sv">street</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -457,7 +457,7 @@
                     <names>
                         <name language="sv">city</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -469,7 +469,7 @@
                     <names>
                         <name language="sv">state</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="10" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -481,7 +481,7 @@
                     <names>
                         <name language="sv">zip_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="5" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -493,7 +493,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -505,7 +505,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -519,13 +519,13 @@
             <names>
                 <name language="sv">patient_diagnosis</name>
             </names>
-            <descriptons />
+            <descriptions />
             <columns>
                 <column id="patient_diagnosis_id">
                     <names>
                         <name language="sv">patient_diagnosis_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -537,7 +537,7 @@
                     <names>
                         <name language="sv">patient_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -549,7 +549,7 @@
                     <names>
                         <name language="sv">diagnosis_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -561,7 +561,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -573,7 +573,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -587,7 +587,7 @@
             <names>
                 <name language="sv">patients</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>patient_id</value>
             </businessKey>
@@ -596,7 +596,7 @@
                     <names>
                         <name language="sv">patient_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -608,7 +608,7 @@
                     <names>
                         <name language="sv">first_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -620,7 +620,7 @@
                     <names>
                         <name language="sv">last_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -632,7 +632,7 @@
                     <names>
                         <name language="sv">phone</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -644,7 +644,7 @@
                     <names>
                         <name language="sv">email</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -656,7 +656,7 @@
                     <names>
                         <name language="sv">street</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -668,7 +668,7 @@
                     <names>
                         <name language="sv">city</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -680,7 +680,7 @@
                     <names>
                         <name language="sv">state</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -692,7 +692,7 @@
                     <names>
                         <name language="sv">zip_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="5" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -704,7 +704,7 @@
                     <names>
                         <name language="sv">social_security_number</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -716,7 +716,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -728,7 +728,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -742,7 +742,7 @@
             <names>
                 <name language="sv">staffs</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>staff_id</value>
                 <value>email</value>
@@ -752,7 +752,7 @@
                     <names>
                         <name language="sv">staff_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -764,7 +764,7 @@
                     <names>
                         <name language="sv">first_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -776,7 +776,7 @@
                     <names>
                         <name language="sv">last_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -788,7 +788,7 @@
                     <names>
                         <name language="sv">email</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -800,7 +800,7 @@
                     <names>
                         <name language="sv">phone</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -812,7 +812,7 @@
                     <names>
                         <name language="sv">active</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -824,7 +824,7 @@
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -836,7 +836,7 @@
                     <names>
                         <name language="sv">manager_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -848,7 +848,7 @@
                     <names>
                         <name language="sv">social_security_number</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -860,7 +860,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -872,7 +872,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -894,7 +894,7 @@
             <names>
                 <name language="sv">brands</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>brand_id</value>
             </businessKey>
@@ -903,7 +903,7 @@
                     <names>
                         <name language="sv">brand_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -915,7 +915,7 @@
                     <names>
                         <name language="sv">brand_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -927,7 +927,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -939,7 +939,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -953,7 +953,7 @@
             <names>
                 <name language="sv">categories</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>category_id</value>
             </businessKey>
@@ -962,7 +962,7 @@
                     <names>
                         <name language="sv">category_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -974,7 +974,7 @@
                     <names>
                         <name language="sv">category_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -986,7 +986,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -998,7 +998,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1012,7 +1012,7 @@
             <names>
                 <name language="sv">drugs</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>drug_id</value>
             </businessKey>
@@ -1021,7 +1021,7 @@
                     <names>
                         <name language="sv">drug_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1033,7 +1033,7 @@
                     <names>
                         <name language="sv">drug_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1045,7 +1045,7 @@
                     <names>
                         <name language="sv">brand_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1057,7 +1057,7 @@
                     <names>
                         <name language="sv">category_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1069,7 +1069,7 @@
                     <names>
                         <name language="sv">model_year</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="smallInteger" unsigned="true" originalDataType="smallint" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1081,7 +1081,7 @@
                     <names>
                         <name language="sv">list_price</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="decimal" precision="10" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1093,7 +1093,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1105,7 +1105,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1127,7 +1127,7 @@
             <names>
                 <name language="sv">stocks</name>
             </names>
-            <descriptons />
+            <descriptions />
             <businessKey>
                 <value>hospital_id</value>
                 <value>drug_id</value>
@@ -1137,7 +1137,7 @@
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1149,7 +1149,7 @@
                     <names>
                         <name language="sv">drug_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1161,7 +1161,7 @@
                     <names>
                         <name language="sv">quantity</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
                     <traits>
                         <trait class="columnsources">
@@ -1173,7 +1173,7 @@
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">
@@ -1185,7 +1185,7 @@
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                     <traits>
                         <trait class="columnsources">

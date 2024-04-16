@@ -10,69 +10,69 @@
             <names>
                 <name language="sv">diagnosis</name>
             </names>
-            <descriptons />
+            <descriptions />
             <columns>
                 <column id="diagnosis_id">
                     <names>
                         <name language="sv">diagnosis_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="diagnosis_category_code">
                     <names>
                         <name language="sv">diagnosis_category_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="diagnosis_code">
                     <names>
                         <name language="sv">diagnosis_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="diagnosis_full_code">
                     <names>
                         <name language="sv">diagnosis_full_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="abbreviated_description">
                     <names>
                         <name language="sv">abbreviated_description</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="full description">
                     <names>
                         <name language="sv">full description</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="category title">
                     <names>
                         <name language="sv">category title</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -81,7 +81,7 @@
             <names>
                 <name language="sv">encounters</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -93,70 +93,70 @@
                     <names>
                         <name language="sv">encounter_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="patient_id">
                     <names>
                         <name language="sv">patient_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="encounter_status">
                     <names>
                         <name language="sv">encounter_status</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="order_date">
                     <names>
                         <name language="sv">order_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="required_date">
                     <names>
                         <name language="sv">required_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="shipped_date">
                     <names>
                         <name language="sv">shipped_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="hospital_id">
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="staff_id">
                     <names>
                         <name language="sv">staff_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -176,7 +176,7 @@
             <names>
                 <name language="sv">encounters_items</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -189,56 +189,56 @@
                     <names>
                         <name language="sv">encounter_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="item_id">
                     <names>
                         <name language="sv">item_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="drug_id">
                     <names>
                         <name language="sv">drug_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="quantity">
                     <names>
                         <name language="sv">quantity</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="list_price">
                     <names>
                         <name language="sv">list_price</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="decimal" precision="10" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="discount">
                     <names>
                         <name language="sv">discount</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="decimal" precision="4" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -255,7 +255,7 @@
             <names>
                 <name language="sv">hospitals</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -267,70 +267,70 @@
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="hospital_name">
                     <names>
                         <name language="sv">hospital_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="phone">
                     <names>
                         <name language="sv">phone</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="email">
                     <names>
                         <name language="sv">email</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="street">
                     <names>
                         <name language="sv">street</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="city">
                     <names>
                         <name language="sv">city</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="state">
                     <names>
                         <name language="sv">state</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="10" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="zip_code">
                     <names>
                         <name language="sv">zip_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="5" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -339,7 +339,7 @@
             <names>
                 <name language="sv">patient_diagnosis</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -348,35 +348,35 @@
                     <names>
                         <name language="sv">patient_diagnosis_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="patient_id">
                     <names>
                         <name language="sv">patient_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="diagnosis_id">
                     <names>
                         <name language="sv">diagnosis_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -385,7 +385,7 @@
             <names>
                 <name language="sv">patients</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -397,84 +397,84 @@
                     <names>
                         <name language="sv">patient_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="first_name">
                     <names>
                         <name language="sv">first_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="last_name">
                     <names>
                         <name language="sv">last_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="phone">
                     <names>
                         <name language="sv">phone</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="email">
                     <names>
                         <name language="sv">email</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="street">
                     <names>
                         <name language="sv">street</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="city">
                     <names>
                         <name language="sv">city</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="state">
                     <names>
                         <name language="sv">state</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="zip_code">
                     <names>
                         <name language="sv">zip_code</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="5" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="social_security_number">
                     <names>
                         <name language="sv">social_security_number</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -483,7 +483,7 @@
             <names>
                 <name language="sv">staffs</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -496,77 +496,77 @@
                     <names>
                         <name language="sv">staff_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="first_name">
                     <names>
                         <name language="sv">first_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="last_name">
                     <names>
                         <name language="sv">last_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="50" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="email">
                     <names>
                         <name language="sv">email</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="phone">
                     <names>
                         <name language="sv">phone</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="25" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="active">
                     <names>
                         <name language="sv">active</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="hospital_id">
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="manager_id">
                     <names>
                         <name language="sv">manager_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="social_security_number">
                     <names>
                         <name language="sv">social_security_number</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -583,7 +583,7 @@
             <names>
                 <name language="sv">brands</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -595,28 +595,28 @@
                     <names>
                         <name language="sv">brand_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="brand_name">
                     <names>
                         <name language="sv">brand_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -625,7 +625,7 @@
             <names>
                 <name language="sv">categories</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -637,28 +637,28 @@
                     <names>
                         <name language="sv">category_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="category_name">
                     <names>
                         <name language="sv">category_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -667,7 +667,7 @@
             <names>
                 <name language="sv">drugs</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -679,56 +679,56 @@
                     <names>
                         <name language="sv">drug_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="drug_name">
                     <names>
                         <name language="sv">drug_name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="255" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="brand_id">
                     <names>
                         <name language="sv">brand_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="category_id">
                     <names>
                         <name language="sv">category_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="model_year">
                     <names>
                         <name language="sv">model_year</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="smallInteger" unsigned="true" originalDataType="smallint" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="list_price">
                     <names>
                         <name language="sv">list_price</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="decimal" precision="10" scale="2" unsigned="true" originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -745,7 +745,7 @@
             <names>
                 <name language="sv">stocks</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -758,35 +758,35 @@
                     <names>
                         <name language="sv">hospital_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="drug_id">
                     <names>
                         <name language="sv">drug_id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="quantity">
                     <names>
                         <name language="sv">quantity</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="true" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
                 <column id="update_date">
                     <names>
                         <name language="sv">update_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2" originalPlatform="tsql" isNullable="true" isUtcTime="false" />
                 </column>
             </columns>
@@ -803,7 +803,7 @@
             <names>
                 <name language="sv">database_firewall_rules</name>
             </names>
-            <descriptons />
+            <descriptions />
             <descriptions>
                 <description type="Plain" language="sv">[placeholder]</description>
             </descriptions>
@@ -812,42 +812,42 @@
                     <names>
                         <name language="sv">id</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="integer" unsigned="false" originalDataType="int" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="name">
                     <names>
                         <name language="sv">name</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="128" format="" isFixedLength="false" isWideChar="true" originalDataType="nvarchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="start_ip_address">
                     <names>
                         <name language="sv">start_ip_address</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="45" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="end_ip_address">
                     <names>
                         <name language="sv">end_ip_address</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="string" length="45" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="false" />
                 </column>
                 <column id="create_date">
                     <names>
                         <name language="sv">create_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="3" originalDataType="datetime" originalPlatform="tsql" isNullable="false" isUtcTime="false" />
                 </column>
                 <column id="modify_date">
                     <names>
                         <name language="sv">modify_date</name>
                     </names>
-                    <descriptons />
+                    <descriptions />
                     <dimlDataType id="dateTime" precision="3" originalDataType="datetime" originalPlatform="tsql" isNullable="false" isUtcTime="false" />
                 </column>
             </columns>
