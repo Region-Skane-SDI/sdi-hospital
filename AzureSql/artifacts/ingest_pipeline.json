@@ -1,0 +1,1521 @@
+{
+  "name": "ingest",
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data for diagnosis",
+        "description": "Copy data from diagnosis to diagnosis",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [diagnosis_id], [diagnosis_category_code], [diagnosis_code], [diagnosis_full_code], [abbreviated_description], [full description], [category title], [create_date], [update_date] from [healthcare].[diagnosis]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.diagnosis"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "diagnosis_id",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "diagnosis_id",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "diagnosis_category_code",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "diagnosis_category_code",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "diagnosis_code",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "diagnosis_code",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "diagnosis_full_code",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "diagnosis_full_code",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "abbreviated_description",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "abbreviated_description",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "full description",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "full description",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "category title",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "category title",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "diagnosis",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "diagnosis",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for encounters",
+        "description": "Copy data from encounters to encounters",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [encounter_id], [patient_id], [encounter_status], [order_date], [required_date], [shipped_date], [hospital_id], [staff_id], [create_date], [update_date] from [healthcare].[encounters]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.encounters"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "encounter_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "encounter_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "patient_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "patient_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "encounter_status",
+                  "physicalType": "tinyint"
+                },
+                "sink": {
+                  "name": "encounter_status",
+                  "physicalType": "tinyint"
+                }
+              },
+              {
+                "source": {
+                  "name": "order_date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "order_date",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "required_date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "required_date",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "shipped_date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "shipped_date",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "staff_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "staff_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "encounters",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "encounters",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for encounters_items",
+        "description": "Copy data from encounters_items to encounters_items",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [encounter_id], [item_id], [drug_id], [quantity], [list_price], [discount], [create_date], [update_date] from [healthcare].[encounters_items]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.encounters_items"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "encounter_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "encounter_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "item_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "item_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "drug_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "drug_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "quantity",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "quantity",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "list_price",
+                  "physicalType": "numeric"
+                },
+                "sink": {
+                  "name": "list_price",
+                  "physicalType": "numeric"
+                }
+              },
+              {
+                "source": {
+                  "name": "discount",
+                  "physicalType": "numeric"
+                },
+                "sink": {
+                  "name": "discount",
+                  "physicalType": "numeric"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "encounters_items",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "encounters_items",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for hospitals",
+        "description": "Copy data from hospitals to hospitals",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [hospital_id], [hospital_name], [phone], [email], [street], [city], [state], [zip_code], [create_date], [update_date] from [healthcare].[hospitals]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.hospitals"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "hospital_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "hospital_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "phone",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "phone",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "email",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "email",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "street",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "street",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "city",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "city",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "state",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "state",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "zip_code",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "zip_code",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "hospitals",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "hospitals",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for patient_diagnosis",
+        "description": "Copy data from patient_diagnosis to patient_diagnosis",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [patient_diagnosis_id], [patient_id], [diagnosis_id], [create_date], [update_date] from [healthcare].[patient_diagnosis]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.patient_diagnosis"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "patient_diagnosis_id",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "patient_diagnosis_id",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "patient_id",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "patient_id",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "diagnosis_id",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "diagnosis_id",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "patient_diagnosis",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "patient_diagnosis",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for patients",
+        "description": "Copy data from patients to patients",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [patient_id], [first_name], [last_name], [phone], [email], [street], [city], [state], [zip_code], [social_security_number], [create_date], [update_date] from [healthcare].[patients]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.patients"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "patient_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "patient_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "first_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "first_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "last_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "last_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "phone",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "phone",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "email",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "email",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "street",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "street",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "city",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "city",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "state",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "state",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "zip_code",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "zip_code",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "social_security_number",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "social_security_number",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "patients",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "patients",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for staffs",
+        "description": "Copy data from staffs to staffs",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [staff_id], [first_name], [last_name], [email], [phone], [active], [hospital_id], [manager_id], [social_security_number], [create_date], [update_date] from [healthcare].[staffs]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.staffs"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "staff_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "staff_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "first_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "first_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "last_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "last_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "email",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "email",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "phone",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "phone",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "active",
+                  "physicalType": "tinyint"
+                },
+                "sink": {
+                  "name": "active",
+                  "physicalType": "tinyint"
+                }
+              },
+              {
+                "source": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "manager_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "manager_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "social_security_number",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "social_security_number",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "staffs",
+              "schema": "healthcare"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "staffs",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for brands",
+        "description": "Copy data from brands to brands",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [brand_id], [brand_name], [create_date], [update_date] from [medication].[brands]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.brands"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "brand_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "brand_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "brand_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "brand_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "brands",
+              "schema": "medication"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "brands",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for categories",
+        "description": "Copy data from categories to categories",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [category_id], [category_name], [create_date], [update_date] from [medication].[categories]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.categories"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "category_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "category_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "category_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "category_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "categories",
+              "schema": "medication"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "categories",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for drugs",
+        "description": "Copy data from drugs to drugs",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [drug_id], [drug_name], [brand_id], [category_id], [model_year], [list_price], [create_date], [update_date] from [medication].[drugs]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.drugs"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "drug_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "drug_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "drug_name",
+                  "physicalType": "varchar"
+                },
+                "sink": {
+                  "name": "drug_name",
+                  "physicalType": "varchar"
+                }
+              },
+              {
+                "source": {
+                  "name": "brand_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "brand_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "category_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "category_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "model_year",
+                  "physicalType": "smallint"
+                },
+                "sink": {
+                  "name": "model_year",
+                  "physicalType": "smallint"
+                }
+              },
+              {
+                "source": {
+                  "name": "list_price",
+                  "physicalType": "numeric"
+                },
+                "sink": {
+                  "name": "list_price",
+                  "physicalType": "numeric"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "drugs",
+              "schema": "medication"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "drugs",
+              "schema": "Raw"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Copy data for stocks",
+        "description": "Copy data from stocks to stocks",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "queryTimeout": "00:01:00",
+            "partitionOption": "None",
+            "sqlReaderQuery": "select [hospital_id], [drug_id], [quantity], [create_date], [update_date] from [medication].[stocks]"
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "preCopyScript": "truncate table Raw.stocks"
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "mappings": [
+              {
+                "source": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "hospital_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "drug_id",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "drug_id",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "quantity",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "quantity",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "create_date",
+                  "physicalType": "datetime2"
+                }
+              },
+              {
+                "source": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                },
+                "sink": {
+                  "name": "update_date",
+                  "physicalType": "datetime2"
+                }
+              }
+            ],
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "stocks",
+              "schema": "medication"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ASQL_sdi_hospital_raw_output",
+            "type": "DatasetReference",
+            "parameters": {
+              "table": "stocks",
+              "schema": "Raw"
+            }
+          }
+        ]
+      }
+    ],
+    "parameters": null,
+    "annotations": [],
+    "lastPublishTime": "0001-01-01T00:00:00",
+    "concurrency": 1
+  },
+  "type": "Microsoft.DataFactory/factories/pipelines"
+}
