@@ -1211,8 +1211,8 @@
     </dataOutputs>
     <dataFlow>
         <dataStages>
-            <dataStage id="Raw" order="1" role="input" materialization="table"></dataStage>
-            <dataStage id="Storage" order="2" role="output" materialization="table" />
+            <dataStage id="Raw" type="tempStore" order="1" role="input" materialization="table" />
+            <dataStage id="Storage" type="permaStore" order="2" role="output" materialization="table" />
         </dataStages>
         <dataIngests>
             <dataIngest id="ingest" dataInputId="src">
