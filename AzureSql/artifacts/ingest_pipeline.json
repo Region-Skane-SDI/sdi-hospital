@@ -3,8 +3,8 @@
   "properties": {
     "activities": [
       {
-        "name": "Copy data for diagnosis",
-        "description": "Copy data from diagnosis to diagnosis",
+        "name": "Copy data for healthcare_diagnosis",
+        "description": "Copy data from healthcare_diagnosis to healthcare_diagnosis",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -26,7 +26,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.diagnosis"
+            "preCopyScript": "truncate table Raw.healthcare_diagnosis"
           },
           "enableStaging": false,
           "translator": {
@@ -145,15 +145,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "diagnosis",
+              "table": "healthcare_diagnosis",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for encounters",
-        "description": "Copy data from encounters to encounters",
+        "name": "Copy data for healthcare_encounters",
+        "description": "Copy data from healthcare_encounters to healthcare_encounters",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -175,7 +175,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.encounters"
+            "preCopyScript": "truncate table Raw.healthcare_encounters"
           },
           "enableStaging": false,
           "translator": {
@@ -304,15 +304,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "encounters",
+              "table": "healthcare_encounters",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for encounters_items",
-        "description": "Copy data from encounters_items to encounters_items",
+        "name": "Copy data for healthcare_encounters_items",
+        "description": "Copy data from healthcare_encounters_items to healthcare_encounters_items",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -334,7 +334,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.encounters_items"
+            "preCopyScript": "truncate table Raw.healthcare_encounters_items"
           },
           "enableStaging": false,
           "translator": {
@@ -443,15 +443,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "encounters_items",
+              "table": "healthcare_encounters_items",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for hospitals",
-        "description": "Copy data from hospitals to hospitals",
+        "name": "Copy data for healthcare_hospitals",
+        "description": "Copy data from healthcare_hospitals to healthcare_hospitals",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -473,7 +473,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.hospitals"
+            "preCopyScript": "truncate table Raw.healthcare_hospitals"
           },
           "enableStaging": false,
           "translator": {
@@ -602,15 +602,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "hospitals",
+              "table": "healthcare_hospitals",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for patient_diagnosis",
-        "description": "Copy data from patient_diagnosis to patient_diagnosis",
+        "name": "Copy data for healthcare_patient_diagnosis",
+        "description": "Copy data from healthcare_patient_diagnosis to healthcare_patient_diagnosis",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -632,7 +632,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.patient_diagnosis"
+            "preCopyScript": "truncate table Raw.healthcare_patient_diagnosis"
           },
           "enableStaging": false,
           "translator": {
@@ -711,15 +711,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "patient_diagnosis",
+              "table": "healthcare_patient_diagnosis",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for patients",
-        "description": "Copy data from patients to patients",
+        "name": "Copy data for healthcare_patients",
+        "description": "Copy data from healthcare_patients to healthcare_patients",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -741,7 +741,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.patients"
+            "preCopyScript": "truncate table Raw.healthcare_patients"
           },
           "enableStaging": false,
           "translator": {
@@ -890,15 +890,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "patients",
+              "table": "healthcare_patients",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for staffs",
-        "description": "Copy data from staffs to staffs",
+        "name": "Copy data for healthcare_staffs",
+        "description": "Copy data from healthcare_staffs to healthcare_staffs",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -920,7 +920,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.staffs"
+            "preCopyScript": "truncate table Raw.healthcare_staffs"
           },
           "enableStaging": false,
           "translator": {
@@ -1059,15 +1059,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "staffs",
+              "table": "healthcare_staffs",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for brands",
-        "description": "Copy data from brands to brands",
+        "name": "Copy data for medication_brands",
+        "description": "Copy data from medication_brands to medication_brands",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -1089,7 +1089,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.brands"
+            "preCopyScript": "truncate table Raw.medication_brands"
           },
           "enableStaging": false,
           "translator": {
@@ -1158,15 +1158,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "brands",
+              "table": "medication_brands",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for categories",
-        "description": "Copy data from categories to categories",
+        "name": "Copy data for medication_categories",
+        "description": "Copy data from medication_categories to medication_categories",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -1188,7 +1188,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.categories"
+            "preCopyScript": "truncate table Raw.medication_categories"
           },
           "enableStaging": false,
           "translator": {
@@ -1257,15 +1257,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "categories",
+              "table": "medication_categories",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for drugs",
-        "description": "Copy data from drugs to drugs",
+        "name": "Copy data for medication_drugs",
+        "description": "Copy data from medication_drugs to medication_drugs",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -1287,7 +1287,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.drugs"
+            "preCopyScript": "truncate table Raw.medication_drugs"
           },
           "enableStaging": false,
           "translator": {
@@ -1396,15 +1396,15 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "drugs",
+              "table": "medication_drugs",
               "schema": "Raw"
             }
           }
         ]
       },
       {
-        "name": "Copy data for stocks",
-        "description": "Copy data from stocks to stocks",
+        "name": "Copy data for medication_stocks",
+        "description": "Copy data from medication_stocks to medication_stocks",
         "type": "Copy",
         "dependsOn": [],
         "policy": {
@@ -1426,7 +1426,7 @@
             "type": "AzureSqlSink",
             "writeBehavior": "insert",
             "sqlWriterUseTableLock": false,
-            "preCopyScript": "truncate table Raw.stocks"
+            "preCopyScript": "truncate table Raw.medication_stocks"
           },
           "enableStaging": false,
           "translator": {
@@ -1505,7 +1505,7 @@
             "referenceName": "DS_ASQL_sdi_hospital_raw_output",
             "type": "DatasetReference",
             "parameters": {
-              "table": "stocks",
+              "table": "medication_stocks",
               "schema": "Raw"
             }
           }

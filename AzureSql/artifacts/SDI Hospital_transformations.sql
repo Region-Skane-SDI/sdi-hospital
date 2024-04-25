@@ -1,8 +1,8 @@
 
 
-CREATE PROCEDURE [Storage].[SP_diagnosis_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_diagnosis_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[diagnosis]
+    INSERT INTO [Storage].[healthcare_diagnosis]
     (
       [diagnosis_id],
       [diagnosis_category_code],
@@ -13,7 +13,7 @@ BEGIN
       [category title],
       [create_date],
       [update_date],
-      [DIML_diagnosis_ID],
+      [DIML_healthcare_diagnosis_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -36,7 +36,7 @@ BEGIN
       [category title],
       [create_date],
       [update_date],
-      [DIML_diagnosis_ID],
+      [DIML_healthcare_diagnosis_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -48,14 +48,14 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[diagnosis]
+    FROM [Raw].[healthcare_diagnosis]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_encounters_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_encounters_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[encounters]
+    INSERT INTO [Storage].[healthcare_encounters]
     (
       [encounter_id],
       [patient_id],
@@ -67,7 +67,7 @@ BEGIN
       [staff_id],
       [create_date],
       [update_date],
-      [DIML_encounters_ID],
+      [DIML_healthcare_encounters_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -91,7 +91,7 @@ BEGIN
       [staff_id],
       [create_date],
       [update_date],
-      [DIML_encounters_ID],
+      [DIML_healthcare_encounters_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -103,14 +103,14 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[encounters]
+    FROM [Raw].[healthcare_encounters]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_encounters_items_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_encounters_items_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[encounters_items]
+    INSERT INTO [Storage].[healthcare_encounters_items]
     (
       [encounter_id],
       [item_id],
@@ -120,7 +120,7 @@ BEGIN
       [discount],
       [create_date],
       [update_date],
-      [DIML_encounters_items_ID],
+      [DIML_healthcare_encounters_items_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -142,7 +142,7 @@ BEGIN
       [discount],
       [create_date],
       [update_date],
-      [DIML_encounters_items_ID],
+      [DIML_healthcare_encounters_items_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -154,14 +154,14 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[encounters_items]
+    FROM [Raw].[healthcare_encounters_items]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_hospitals_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_hospitals_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[hospitals]
+    INSERT INTO [Storage].[healthcare_hospitals]
     (
       [hospital_id],
       [hospital_name],
@@ -173,7 +173,7 @@ BEGIN
       [zip_code],
       [create_date],
       [update_date],
-      [DIML_hospitals_ID],
+      [DIML_healthcare_hospitals_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -197,7 +197,7 @@ BEGIN
       [zip_code],
       [create_date],
       [update_date],
-      [DIML_hospitals_ID],
+      [DIML_healthcare_hospitals_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -209,21 +209,21 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[hospitals]
+    FROM [Raw].[healthcare_hospitals]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_patient_diagnosis_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_patient_diagnosis_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[patient_diagnosis]
+    INSERT INTO [Storage].[healthcare_patient_diagnosis]
     (
       [patient_diagnosis_id],
       [patient_id],
       [diagnosis_id],
       [create_date],
       [update_date],
-      [DIML_patient_diagnosis_ID],
+      [DIML_healthcare_patient_diagnosis_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -242,7 +242,7 @@ BEGIN
       [diagnosis_id],
       [create_date],
       [update_date],
-      [DIML_patient_diagnosis_ID],
+      [DIML_healthcare_patient_diagnosis_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -254,14 +254,14 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[patient_diagnosis]
+    FROM [Raw].[healthcare_patient_diagnosis]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_patients_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_patients_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[patients]
+    INSERT INTO [Storage].[healthcare_patients]
     (
       [patient_id],
       [first_name],
@@ -275,7 +275,7 @@ BEGIN
       [social_security_number],
       [create_date],
       [update_date],
-      [DIML_patients_ID],
+      [DIML_healthcare_patients_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -301,7 +301,7 @@ BEGIN
       [social_security_number],
       [create_date],
       [update_date],
-      [DIML_patients_ID],
+      [DIML_healthcare_patients_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -313,14 +313,14 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[patients]
+    FROM [Raw].[healthcare_patients]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_staffs_Transform] AS
+CREATE PROCEDURE [Storage].[SP_healthcare_staffs_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[staffs]
+    INSERT INTO [Storage].[healthcare_staffs]
     (
       [staff_id],
       [first_name],
@@ -333,7 +333,7 @@ BEGIN
       [social_security_number],
       [create_date],
       [update_date],
-      [DIML_staffs_ID],
+      [DIML_healthcare_staffs_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -358,7 +358,7 @@ BEGIN
       [social_security_number],
       [create_date],
       [update_date],
-      [DIML_staffs_ID],
+      [DIML_healthcare_staffs_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -370,20 +370,20 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[staffs]
+    FROM [Raw].[healthcare_staffs]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_brands_Transform] AS
+CREATE PROCEDURE [Storage].[SP_medication_brands_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[brands]
+    INSERT INTO [Storage].[medication_brands]
     (
       [brand_id],
       [brand_name],
       [create_date],
       [update_date],
-      [DIML_brands_ID],
+      [DIML_medication_brands_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -401,7 +401,7 @@ BEGIN
       [brand_name],
       [create_date],
       [update_date],
-      [DIML_brands_ID],
+      [DIML_medication_brands_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -413,20 +413,20 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[brands]
+    FROM [Raw].[medication_brands]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_categories_Transform] AS
+CREATE PROCEDURE [Storage].[SP_medication_categories_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[categories]
+    INSERT INTO [Storage].[medication_categories]
     (
       [category_id],
       [category_name],
       [create_date],
       [update_date],
-      [DIML_categories_ID],
+      [DIML_medication_categories_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -444,7 +444,7 @@ BEGIN
       [category_name],
       [create_date],
       [update_date],
-      [DIML_categories_ID],
+      [DIML_medication_categories_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -456,14 +456,14 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[categories]
+    FROM [Raw].[medication_categories]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_drugs_Transform] AS
+CREATE PROCEDURE [Storage].[SP_medication_drugs_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[drugs]
+    INSERT INTO [Storage].[medication_drugs]
     (
       [drug_id],
       [drug_name],
@@ -473,7 +473,7 @@ BEGIN
       [list_price],
       [create_date],
       [update_date],
-      [DIML_drugs_ID],
+      [DIML_medication_drugs_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -495,7 +495,7 @@ BEGIN
       [list_price],
       [create_date],
       [update_date],
-      [DIML_drugs_ID],
+      [DIML_medication_drugs_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -507,21 +507,21 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[drugs]
+    FROM [Raw].[medication_drugs]
 END
 
 GO
 
-CREATE PROCEDURE [Storage].[SP_stocks_Transform] AS
+CREATE PROCEDURE [Storage].[SP_medication_stocks_Transform] AS
 BEGIN
-    INSERT INTO [Storage].[stocks]
+    INSERT INTO [Storage].[medication_stocks]
     (
       [hospital_id],
       [drug_id],
       [quantity],
       [create_date],
       [update_date],
-      [DIML_stocks_ID],
+      [DIML_medication_stocks_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -540,7 +540,7 @@ BEGIN
       [quantity],
       [create_date],
       [update_date],
-      [DIML_stocks_ID],
+      [DIML_medication_stocks_ID],
       [DIML_ExecutionLog_ID],
       [DIML_Batch_ID],
       [DIML_KeyHash],
@@ -552,7 +552,7 @@ BEGIN
       [DIML_SCD2_IsCurrent],
       [DIML_SCD2_StartTime],
       [DIML_SCD2_EndTime]
-    FROM [Raw].[stocks]
+    FROM [Raw].[medication_stocks]
 END
 
 GO
