@@ -1,6 +1,6 @@
 
 
-CREATE TABLE [Raw].[diagnosis] (
+CREATE TABLE [Raw].[healthcare_diagnosis] (
      [diagnosis_id] bigint NOT NULL,
      [diagnosis_category_code] varchar(50) NULL,
      [diagnosis_code] varchar(50) NULL,
@@ -10,23 +10,23 @@ CREATE TABLE [Raw].[diagnosis] (
      [category title] varchar(2000) NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_diagnosis_ID] int NULL,
+     [DIML_healthcare_diagnosis_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[encounters] (
+CREATE TABLE [Raw].[healthcare_encounters] (
      [encounter_id] int NOT NULL,
      [patient_id] int NULL,
      [encounter_status] tinyint NOT NULL,
@@ -37,23 +37,23 @@ CREATE TABLE [Raw].[encounters] (
      [staff_id] int NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_encounters_ID] int NULL,
+     [DIML_healthcare_encounters_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[encounters_items] (
+CREATE TABLE [Raw].[healthcare_encounters_items] (
      [encounter_id] int NOT NULL,
      [item_id] int NOT NULL,
      [drug_id] int NOT NULL,
@@ -62,23 +62,23 @@ CREATE TABLE [Raw].[encounters_items] (
      [discount] numeric(4, 2) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_encounters_items_ID] int NULL,
+     [DIML_healthcare_encounters_items_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[hospitals] (
+CREATE TABLE [Raw].[healthcare_hospitals] (
      [hospital_id] int NOT NULL,
      [hospital_name] varchar(255) NOT NULL,
      [phone] varchar(25) NULL,
@@ -89,45 +89,45 @@ CREATE TABLE [Raw].[hospitals] (
      [zip_code] varchar(5) NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_hospitals_ID] int NULL,
+     [DIML_healthcare_hospitals_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[patient_diagnosis] (
+CREATE TABLE [Raw].[healthcare_patient_diagnosis] (
      [patient_diagnosis_id] bigint NOT NULL,
      [patient_id] bigint NULL,
      [diagnosis_id] bigint NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_patient_diagnosis_ID] int NULL,
+     [DIML_healthcare_patient_diagnosis_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[patients] (
+CREATE TABLE [Raw].[healthcare_patients] (
      [patient_id] int NOT NULL,
      [first_name] varchar(255) NOT NULL,
      [last_name] varchar(255) NOT NULL,
@@ -140,23 +140,23 @@ CREATE TABLE [Raw].[patients] (
      [social_security_number] varchar(255) NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_patients_ID] int NULL,
+     [DIML_healthcare_patients_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[staffs] (
+CREATE TABLE [Raw].[healthcare_staffs] (
      [staff_id] int NOT NULL,
      [first_name] varchar(50) NOT NULL,
      [last_name] varchar(50) NOT NULL,
@@ -168,65 +168,65 @@ CREATE TABLE [Raw].[staffs] (
      [social_security_number] bigint NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_staffs_ID] int NULL,
+     [DIML_healthcare_staffs_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[brands] (
+CREATE TABLE [Raw].[medication_brands] (
      [brand_id] int NOT NULL,
      [brand_name] varchar(255) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_brands_ID] int NULL,
+     [DIML_medication_brands_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[categories] (
+CREATE TABLE [Raw].[medication_categories] (
      [category_id] int NOT NULL,
      [category_name] varchar(255) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_categories_ID] int NULL,
+     [DIML_medication_categories_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[drugs] (
+CREATE TABLE [Raw].[medication_drugs] (
      [drug_id] int NOT NULL,
      [drug_name] varchar(255) NOT NULL,
      [brand_id] int NOT NULL,
@@ -235,45 +235,45 @@ CREATE TABLE [Raw].[drugs] (
      [list_price] numeric(10, 2) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_drugs_ID] int NULL,
+     [DIML_medication_drugs_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Raw].[stocks] (
+CREATE TABLE [Raw].[medication_stocks] (
      [hospital_id] int NOT NULL,
      [drug_id] int NOT NULL,
      [quantity] int NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_stocks_ID] int NULL,
+     [DIML_medication_stocks_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[diagnosis] (
+CREATE TABLE [Storage].[healthcare_diagnosis] (
      [diagnosis_id] bigint NOT NULL,
      [diagnosis_category_code] varchar(50) NULL,
      [diagnosis_code] varchar(50) NULL,
@@ -283,23 +283,23 @@ CREATE TABLE [Storage].[diagnosis] (
      [category title] varchar(2000) NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_diagnosis_ID] int NULL,
+     [DIML_healthcare_diagnosis_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[encounters] (
+CREATE TABLE [Storage].[healthcare_encounters] (
      [encounter_id] int NOT NULL,
      [patient_id] int NULL,
      [encounter_status] tinyint NOT NULL,
@@ -310,23 +310,23 @@ CREATE TABLE [Storage].[encounters] (
      [staff_id] int NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_encounters_ID] int NULL,
+     [DIML_healthcare_encounters_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[encounters_items] (
+CREATE TABLE [Storage].[healthcare_encounters_items] (
      [encounter_id] int NOT NULL,
      [item_id] int NOT NULL,
      [drug_id] int NOT NULL,
@@ -335,23 +335,23 @@ CREATE TABLE [Storage].[encounters_items] (
      [discount] numeric(4, 2) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_encounters_items_ID] int NULL,
+     [DIML_healthcare_encounters_items_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[hospitals] (
+CREATE TABLE [Storage].[healthcare_hospitals] (
      [hospital_id] int NOT NULL,
      [hospital_name] varchar(255) NOT NULL,
      [phone] varchar(25) NULL,
@@ -362,45 +362,45 @@ CREATE TABLE [Storage].[hospitals] (
      [zip_code] varchar(5) NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_hospitals_ID] int NULL,
+     [DIML_healthcare_hospitals_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[patient_diagnosis] (
+CREATE TABLE [Storage].[healthcare_patient_diagnosis] (
      [patient_diagnosis_id] bigint NOT NULL,
      [patient_id] bigint NULL,
      [diagnosis_id] bigint NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_patient_diagnosis_ID] int NULL,
+     [DIML_healthcare_patient_diagnosis_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[patients] (
+CREATE TABLE [Storage].[healthcare_patients] (
      [patient_id] int NOT NULL,
      [first_name] varchar(255) NOT NULL,
      [last_name] varchar(255) NOT NULL,
@@ -413,23 +413,23 @@ CREATE TABLE [Storage].[patients] (
      [social_security_number] varchar(255) NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_patients_ID] int NULL,
+     [DIML_healthcare_patients_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[staffs] (
+CREATE TABLE [Storage].[healthcare_staffs] (
      [staff_id] int NOT NULL,
      [first_name] varchar(50) NOT NULL,
      [last_name] varchar(50) NOT NULL,
@@ -441,65 +441,65 @@ CREATE TABLE [Storage].[staffs] (
      [social_security_number] bigint NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_staffs_ID] int NULL,
+     [DIML_healthcare_staffs_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[brands] (
+CREATE TABLE [Storage].[medication_brands] (
      [brand_id] int NOT NULL,
      [brand_name] varchar(255) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_brands_ID] int NULL,
+     [DIML_medication_brands_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[categories] (
+CREATE TABLE [Storage].[medication_categories] (
      [category_id] int NOT NULL,
      [category_name] varchar(255) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_categories_ID] int NULL,
+     [DIML_medication_categories_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[drugs] (
+CREATE TABLE [Storage].[medication_drugs] (
      [drug_id] int NOT NULL,
      [drug_name] varchar(255) NOT NULL,
      [brand_id] int NOT NULL,
@@ -508,40 +508,40 @@ CREATE TABLE [Storage].[drugs] (
      [list_price] numeric(10, 2) NOT NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_drugs_ID] int NULL,
+     [DIML_medication_drugs_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
 
-CREATE TABLE [Storage].[stocks] (
+CREATE TABLE [Storage].[medication_stocks] (
      [hospital_id] int NOT NULL,
      [drug_id] int NOT NULL,
      [quantity] int NULL,
      [create_date] datetime2(7) NULL,
      [update_date] datetime2(7) NULL,
-     [DIML_stocks_ID] int NULL,
+     [DIML_medication_stocks_ID] int NULL,
      [DIML_ExecutionLog_ID] int NULL,
      [DIML_Batch_ID] int NULL,
      [DIML_KeyHash] binary NULL,
      [DIML_RowHash] binary NULL,
-     [DIML_CreateTime_UTC] datetime2 NULL,
-     [DIML_LastUpdateTime_UTC] datetime2 NULL,
+     [DIML_CreateTime_UTC] datetime2(0) NULL,
+     [DIML_LastUpdateTime_UTC] datetime2(0) NULL,
      [DIML_IsDeleted] bit NULL,
-     [DIML_CDC_Action] char NULL,
+     [DIML_CDC_Action] char(1) NULL,
      [DIML_SCD2_IsCurrent] bit NULL,
-     [DIML_SCD2_StartTime] datetime2 NULL,
-     [DIML_SCD2_EndTime] datetime2 NULL
+     [DIML_SCD2_StartTime] datetime2(0) NULL,
+     [DIML_SCD2_EndTime] datetime2(0) NULL
 )
 
 GO
