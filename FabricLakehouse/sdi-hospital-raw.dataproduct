@@ -1116,6 +1116,7 @@
     <dataFlow>
         <dataStages>
             <dataStage id="Raw" type="tempStore" order="1" role="input" materialization="table" />
+            <dataStage id="Hash" type="hash" order="2" materialization="table" />
             <dataStage id="Storage" type="permaStore" order="2" role="output" materialization="table" />
         </dataStages>
         <dataIngests>
