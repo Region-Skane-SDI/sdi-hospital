@@ -15,6 +15,9 @@
             <names>
                 <name language="sv">diagnosis</name>
             </names>
+            <businessKey>
+                <value>diagnosis_id</value>
+            </businessKey>
             <columns>
                 <column id="diagnosis_id">
                     <names>
