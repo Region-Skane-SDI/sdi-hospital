@@ -74,7 +74,7 @@
                         </trait>
                     </traits>
                 </column>
-                <column id="full description">
+                <column id="full_description">
                     <names>
                         <name language="sv">full description</name>
                     </names>
@@ -85,7 +85,7 @@
                         </trait>
                     </traits>
                 </column>
-                <column id="category title">
+                <column id="category_title">
                     <names>
                         <name language="sv">category title</name>
                     </names>
