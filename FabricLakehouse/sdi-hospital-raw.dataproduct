@@ -482,6 +482,9 @@
             <names>
                 <name language="sv">patient_diagnosis</name>
             </names>
+            <businessKey>
+                <value>patient_diagnosis_id</value>
+            </businessKey>
             <columns>
                 <column id="patient_diagnosis_id">
                     <names>
