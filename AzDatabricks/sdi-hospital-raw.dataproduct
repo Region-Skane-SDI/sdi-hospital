@@ -1,18 +1,29 @@
-<dataSource xmlns="https://github.com/Region-Skane-SDI/diml/datasource"
+<dataProduct xmlns="https://github.com/Region-Skane-SDI/diml/dataproduct"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://github.com/Region-Skane-SDI/diml/datasource https://raw.githubusercontent.com/Region-Skane-SDI/diml-schemas/main/v0/datasource.xsd"
-    dimlId="https://raw.githubusercontent.com/Region-Skane-SDI/sdi-hospital/main/sdi-hospital.datasource">
+    xsi:schemaLocation="https://github.com/Region-Skane-SDI/diml/dataproduct https://raw.githubusercontent.com/Region-Skane-SDI/diml-schemas/main/v0/dataproduct.xsd"
+    dimlId="https://raw.githubusercontent.com/Region-Skane-SDI/sdi-hospital/main/AzDatabricks/sdi-hospital-raw.dataproduct"
+    targetPlatform="azdatabricks">
     <names>
         <name language="sv">SDI Hospital</name>
     </names>
     <descriptions>
-        <description type="Plain" language="sv">This is a data source used for demo and verification purposes.</description>
+        <description type="Plain" language="sv">En rådataprodukt av källan SDI Hospital.</description>
     </descriptions>
+    <dcat dcatDataTheme="heal" dcatAccessRights="nonPublic" dcatUpdateFrequency="other"
+        dcatAvailability="experimental" dcatStatus="underDevelopment" />
+    <dataInputs>
+        <dataInput id="src"
+            dimlId="https://raw.githubusercontent.com/Region-Skane-SDI/sdi-hospital/main/sdi-hospital.datasource"
+            channelId="sql" />
+    </dataInputs>
     <tables>
-        <table id="healthcare_diagnosis" name="diagnosis" schema="healthcare">
+        <table id="healthcare_diagnosis">
             <names>
                 <name language="sv">diagnosis</name>
             </names>
+            <businessKey>
+                <value>diagnosis_id</value>
+            </businessKey>
             <columns>
                 <column id="diagnosis_id">
                     <names>
@@ -20,6 +31,12 @@
                     </names>
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/diagnosis_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="diagnosis_category_code">
                     <names>
@@ -28,6 +45,12 @@
                     <dimlDataType id="string" length="50" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/diagnosis_category_code" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="diagnosis_code">
                     <names>
@@ -36,6 +59,12 @@
                     <dimlDataType id="string" length="50" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/diagnosis_code" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="diagnosis_full_code">
                     <names>
@@ -44,6 +73,12 @@
                     <dimlDataType id="string" length="50" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/diagnosis_full_code" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="abbreviated_description">
                     <names>
@@ -52,22 +87,40 @@
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/abbreviated_description" />
+                        </trait>
+                    </traits>
                 </column>
-                <column id="full description">
+                <column id="full_description">
                     <names>
                         <name language="sv">full description</name>
                     </names>
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/full description" />
+                        </trait>
+                    </traits>
                 </column>
-                <column id="category title">
+                <column id="category_title">
                     <names>
                         <name language="sv">category title</name>
                     </names>
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/category title" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -75,6 +128,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -82,10 +141,16 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_diagnosis/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
         </table>
-        <table id="healthcare_encounters" name="encounters" schema="healthcare">
+        <table id="healthcare_encounters">
             <names>
                 <name language="sv">encounters</name>
             </names>
@@ -99,6 +164,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/encounter_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="patient_id">
                     <names>
@@ -106,6 +177,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/patient_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="encounter_status">
                     <names>
@@ -113,6 +190,12 @@
                     </names>
                     <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/encounter_status" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="order_date">
                     <names>
@@ -120,6 +203,12 @@
                     </names>
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/order_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="required_date">
                     <names>
@@ -127,6 +216,12 @@
                     </names>
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/required_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="shipped_date">
                     <names>
@@ -134,6 +229,12 @@
                     </names>
                     <dimlDataType id="date" originalDataType="date" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/shipped_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="hospital_id">
                     <names>
@@ -141,6 +242,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/hospital_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="staff_id">
                     <names>
@@ -148,6 +255,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_encounters/staff_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -155,6 +267,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -162,6 +280,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
             <tableRelations>
@@ -176,7 +300,7 @@
                 </tableRelation>
             </tableRelations>
         </table>
-        <table id="healthcare_encounters_items" name="encounters_items" schema="healthcare">
+        <table id="healthcare_encounters_items">
             <names>
                 <name language="sv">encounters_items</name>
             </names>
@@ -191,6 +315,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/encounter_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="item_id">
                     <names>
@@ -198,6 +328,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/item_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="drug_id">
                     <names>
@@ -205,6 +341,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/drug_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="quantity">
                     <names>
@@ -212,6 +354,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/quantity" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="list_price">
                     <names>
@@ -219,6 +367,12 @@
                     </names>
                     <dimlDataType id="decimal" precision="10" scale="2" unsigned="true"
                         originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/list_price" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="discount">
                     <names>
@@ -226,6 +380,12 @@
                     </names>
                     <dimlDataType id="decimal" precision="4" scale="2" unsigned="true"
                         originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/discount" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -233,6 +393,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -240,6 +406,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_encounters_items/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
             <tableRelations>
@@ -251,7 +423,7 @@
                 </tableRelation>
             </tableRelations>
         </table>
-        <table id="healthcare_hospitals" name="hospitals" schema="healthcare">
+        <table id="healthcare_hospitals">
             <names>
                 <name language="sv">hospitals</name>
             </names>
@@ -265,6 +437,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_hospitals/hospital_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="hospital_name">
                     <names>
@@ -273,6 +451,12 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_hospitals/hospital_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="phone">
                     <names>
@@ -281,6 +465,11 @@
                     <dimlDataType id="string" length="25" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_hospitals/phone" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="email">
                     <names>
@@ -289,6 +478,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_hospitals/email" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="street">
                     <names>
@@ -297,6 +491,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_hospitals/street" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="city">
                     <names>
@@ -305,6 +504,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_hospitals/city" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="state">
                     <names>
@@ -313,6 +517,11 @@
                     <dimlDataType id="string" length="10" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_hospitals/state" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="zip_code">
                     <names>
@@ -321,6 +530,11 @@
                     <dimlDataType id="string" length="5" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_hospitals/zip_code" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -328,6 +542,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_hospitals/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -335,13 +555,22 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_hospitals/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
         </table>
-        <table id="healthcare_patient_diagnosis" name="patient_diagnosis" schema="healthcare">
+        <table id="healthcare_patient_diagnosis">
             <names>
                 <name language="sv">patient_diagnosis</name>
             </names>
+            <businessKey>
+                <value>patient_diagnosis_id</value>
+            </businessKey>
             <columns>
                 <column id="patient_diagnosis_id">
                     <names>
@@ -349,6 +578,12 @@
                     </names>
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_patient_diagnosis/patient_diagnosis_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="patient_id">
                     <names>
@@ -356,6 +591,12 @@
                     </names>
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint"
                         originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_patient_diagnosis/patient_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="diagnosis_id">
                     <names>
@@ -363,6 +604,12 @@
                     </names>
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint"
                         originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_patient_diagnosis/diagnosis_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -370,6 +617,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_patient_diagnosis/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -377,10 +630,16 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_patient_diagnosis/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
         </table>
-        <table id="healthcare_patients" name="patients" schema="healthcare">
+        <table id="healthcare_patients">
             <names>
                 <name language="sv">patients</name>
             </names>
@@ -394,6 +653,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/patient_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="first_name">
                     <names>
@@ -402,6 +666,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/first_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="last_name">
                     <names>
@@ -410,6 +679,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/last_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="phone">
                     <names>
@@ -418,6 +692,11 @@
                     <dimlDataType id="string" length="25" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/phone" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="email">
                     <names>
@@ -426,6 +705,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/email" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="street">
                     <names>
@@ -434,6 +718,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/street" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="city">
                     <names>
@@ -442,6 +731,11 @@
                     <dimlDataType id="string" length="50" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/city" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="state">
                     <names>
@@ -450,6 +744,11 @@
                     <dimlDataType id="string" length="25" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/state" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="zip_code">
                     <names>
@@ -458,6 +757,11 @@
                     <dimlDataType id="string" length="5" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/zip_code" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="social_security_number">
                     <names>
@@ -466,6 +770,12 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_patients/social_security_number" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -473,6 +783,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -480,10 +795,15 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_patients/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
         </table>
-        <table id="healthcare_staffs" name="staffs" schema="healthcare">
+        <table id="healthcare_staffs">
             <names>
                 <name language="sv">staffs</name>
             </names>
@@ -498,6 +818,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/staff_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="first_name">
                     <names>
@@ -506,6 +831,11 @@
                     <dimlDataType id="string" length="50" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/first_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="last_name">
                     <names>
@@ -514,6 +844,11 @@
                     <dimlDataType id="string" length="50" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/last_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="email">
                     <names>
@@ -522,6 +857,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/email" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="phone">
                     <names>
@@ -530,6 +870,11 @@
                     <dimlDataType id="string" length="25" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/phone" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="active">
                     <names>
@@ -537,6 +882,11 @@
                     </names>
                     <dimlDataType id="tinyInteger" unsigned="true" originalDataType="tinyint"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/active" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="hospital_id">
                     <names>
@@ -544,6 +894,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/hospital_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="manager_id">
                     <names>
@@ -551,6 +906,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/manager_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="social_security_number">
                     <names>
@@ -558,6 +918,12 @@
                     </names>
                     <dimlDataType id="bigInteger" unsigned="true" originalDataType="bigint"
                         originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/healthcare_staffs/social_security_number" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -565,6 +931,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -572,6 +943,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/healthcare_staffs/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
             <tableRelations>
@@ -583,7 +959,7 @@
                 </tableRelation>
             </tableRelations>
         </table>
-        <table id="medication_brands" name="brands" schema="medication">
+        <table id="medication_brands">
             <names>
                 <name language="sv">brands</name>
             </names>
@@ -597,6 +973,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_brands/brand_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="brand_name">
                     <names>
@@ -605,6 +986,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_brands/brand_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -612,6 +998,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_brands/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -619,10 +1010,15 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_brands/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
         </table>
-        <table id="medication_categories" name="categories" schema="medication">
+        <table id="medication_categories">
             <names>
                 <name language="sv">categories</name>
             </names>
@@ -636,6 +1032,12 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/medication_categories/category_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="category_name">
                     <names>
@@ -644,6 +1046,12 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/medication_categories/category_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -651,6 +1059,12 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/medication_categories/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -658,10 +1072,16 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value"
+                                value="src1/medication_categories/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
         </table>
-        <table id="medication_drugs" name="drugs" schema="medication">
+        <table id="medication_drugs">
             <names>
                 <name language="sv">drugs</name>
             </names>
@@ -675,6 +1095,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/drug_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="drug_name">
                     <names>
@@ -683,6 +1108,11 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/drug_name" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="brand_id">
                     <names>
@@ -690,6 +1120,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/brand_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="category_id">
                     <names>
@@ -697,6 +1132,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/category_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="model_year">
                     <names>
@@ -704,6 +1144,11 @@
                     </names>
                     <dimlDataType id="smallInteger" unsigned="true" originalDataType="smallint"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/model_year" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="list_price">
                     <names>
@@ -711,6 +1156,11 @@
                     </names>
                     <dimlDataType id="decimal" precision="10" scale="2" unsigned="true"
                         originalDataType="decimal" originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/list_price" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -718,6 +1168,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -725,6 +1180,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_drugs/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
             <tableRelations>
@@ -736,7 +1196,7 @@
                 </tableRelation>
             </tableRelations>
         </table>
-        <table id="medication_stocks" name="stocks" schema="medication">
+        <table id="medication_stocks">
             <names>
                 <name language="sv">stocks</name>
             </names>
@@ -751,6 +1211,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_stocks/hospital_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="drug_id">
                     <names>
@@ -758,6 +1223,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_stocks/drug_id" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="quantity">
                     <names>
@@ -765,6 +1235,11 @@
                     </names>
                     <dimlDataType id="integer" unsigned="false" originalDataType="int"
                         originalPlatform="tsql" isNullable="true" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_stocks/quantity" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="create_date">
                     <names>
@@ -772,6 +1247,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_stocks/create_date" />
+                        </trait>
+                    </traits>
                 </column>
                 <column id="update_date">
                     <names>
@@ -779,6 +1259,11 @@
                     </names>
                     <dimlDataType id="dateTime" precision="7" originalDataType="datetime2"
                         originalPlatform="tsql" isNullable="true" isUtcTime="false" />
+                    <traits>
+                        <trait class="columnsources">
+                            <traitParameter key="value" value="src1/medication_stocks/update_date" />
+                        </trait>
+                    </traits>
                 </column>
             </columns>
             <tableRelations>
@@ -793,7 +1278,42 @@
     </tables>
     <dataOutputs>
         <sqlOutputs>
-            <sqlOutput channelId="sql" sqlOutputType="Tsql" />
+            <sqlOutput channelId="sql" sqlOutputType="sparksql" />
         </sqlOutputs>
     </dataOutputs>
-</dataSource>
+    <dataFlow>
+        <dataStages>
+            <dataStage id="Raw" type="tempStore" order="1" role="input" materialization="table" />
+            <dataStage id="Hash" type="hash" order="2" materialization="table" />
+            <dataStage id="Storage" type="permaStore" order="3" role="output"
+                materialization="table" />
+        </dataStages>
+        <dataIngests>
+            <dataIngest id="ingest" dataInputId="src">
+                <tableToTableMappings>
+                    <tableToTableMapping sourceTableId="healthcare_diagnosis"
+                        tableId="healthcare_diagnosis" />
+                    <tableToTableMapping sourceTableId="healthcare_encounters"
+                        tableId="healthcare_encounters" />
+                    <tableToTableMapping sourceTableId="healthcare_encounters_items"
+                        tableId="healthcare_encounters_items" />
+                    <tableToTableMapping sourceTableId="healthcare_hospitals"
+                        tableId="healthcare_hospitals" />
+                    <tableToTableMapping sourceTableId="healthcare_patient_diagnosis"
+                        tableId="healthcare_patient_diagnosis" />
+                    <tableToTableMapping sourceTableId="healthcare_patients"
+                        tableId="healthcare_patients" />
+                    <tableToTableMapping sourceTableId="healthcare_staffs"
+                        tableId="healthcare_staffs" />
+                    <tableToTableMapping sourceTableId="medication_brands"
+                        tableId="medication_brands" />
+                    <tableToTableMapping sourceTableId="medication_categories"
+                        tableId="medication_categories" />
+                    <tableToTableMapping sourceTableId="medication_drugs" tableId="medication_drugs" />
+                    <tableToTableMapping sourceTableId="medication_stocks"
+                        tableId="medication_stocks" />
+                </tableToTableMappings>
+            </dataIngest>
+        </dataIngests>
+    </dataFlow>
+</dataProduct>
