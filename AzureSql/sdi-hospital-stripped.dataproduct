@@ -177,6 +177,14 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <columnInstances>
+                        <columnInstance stageId="TypeCast" alias="first_name_date">
+                            <dimlDataType id="date" isNullable="true" />
+                        </columnInstance>
+                        <columnInstance stageId="TypeCastView" alias="first_name_date">
+                            <dimlDataType id="date" isNullable="true" />
+                        </columnInstance>
+                    </columnInstances>
                     <traits>
                         <trait class="columnsources">
                             <traitParameter key="value" value="src1/healthcare_patients/first_name" />
@@ -190,6 +198,14 @@
                     <dimlDataType id="string" length="255" format="" isFixedLength="false"
                         isWideChar="false" originalDataType="varchar" originalPlatform="tsql"
                         isNullable="false" />
+                    <columnInstances>
+                        <columnInstance stageId="TypeCast" alias="last_name_date">
+                            <dimlDataType id="date" isNullable="true" />
+                        </columnInstance>
+                        <columnInstance stageId="TypeCastView" alias="last_name_date">
+                            <dimlDataType id="date" isNullable="true" />
+                        </columnInstance>
+                    </columnInstances>
                     <traits>
                         <trait class="columnsources">
                             <traitParameter key="value" value="src1/healthcare_patients/last_name" />
@@ -326,6 +342,8 @@
             <dataStage id="TempStore" type="tempStore" order="2" materialization="table" />
             <dataStage id="Validate" type="validate" order="3" materialization="table" />
             <dataStage id="Hash" type="hash" order="4" materialization="table" />
+            <dataStage id="TypeCast" type="typeCast" order="4" materialization="table" />
+            <dataStage id="TypeCastView" type="typeCast" order="4" materialization="view" />
         </dataStages>
         <dataIngests>
             <dataIngest id="ingest" dataInputId="src">
