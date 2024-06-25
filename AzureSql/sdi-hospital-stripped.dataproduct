@@ -349,7 +349,12 @@
             <dataIngest id="ingest" dataInputId="src">
                 <tableToTableMappings>
                     <tableToTableMapping sourceTableId="healthcare_diagnosis"
-                        tableId="healthcare_diagnosis" />
+                        tableId="healthcare_diagnosis">
+                        <columnMappings>
+                            <columnMapping sourceColumnId="full description" columnId="full_description" />
+                            <columnMapping sourceColumnId="category title" columnId="category_title" />
+                        </columnMappings>
+                    </tableToTableMapping>
                     <tableToTableMapping sourceTableId="healthcare_patients"
                         tableId="healthcare_patients" />
                 </tableToTableMappings>
