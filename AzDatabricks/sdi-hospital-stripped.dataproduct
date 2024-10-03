@@ -17,7 +17,7 @@
             channelId="sql" />
     </dataInputs>
     <tables>
-        <table id="healthcare_diagnosis">
+        <table id="healthcare_diagnosis" name="healthcare_diagnosis">
             <names>
                 <name language="sv">diagnosis</name>
             </names>
@@ -150,7 +150,7 @@
                 </column>
             </columns>
         </table>
-        <table id="healthcare_patients">
+        <table id="healthcare_patients" name="healthcare_patients">
             <names>
                 <name language="sv">patients</name>
             </names>
