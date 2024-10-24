@@ -2,7 +2,7 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="https://github.com/Region-Skane-SDI/diml/dataproduct https://raw.githubusercontent.com/Region-Skane-SDI/diml-schemas/main/v0/dataproduct.xsd" 
 dimlId="https://bki.skane.se/diml/dataproduct/id/15" 
-targetPlatform="azdatabricks">
+targetPlatform="azsqlserver">
     <names>
         <name language="sv">SDI Hospital</name>
     </names>
@@ -1143,7 +1143,7 @@ targetPlatform="azdatabricks">
     </tables>
     <dataOutputs>
         <sqlOutputs>
-            <sqlOutput channelId="sql" sqlOutputType="sparksql" />
+            <sqlOutput channelId="sql" sqlOutputType="Tsql" />
         </sqlOutputs>
     </dataOutputs>
     <dataFlow>
