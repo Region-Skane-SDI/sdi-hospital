@@ -1,8 +1,4 @@
-<dataProduct xmlns="https://github.com/Region-Skane-SDI/diml/dataproduct" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="https://github.com/Region-Skane-SDI/diml/dataproduct https://raw.githubusercontent.com/Region-Skane-SDI/diml-schemas/main/v0/dataproduct.xsd" 
-dimlId="https://bki.skane.se/diml/dataproduct/id/15" 
-targetPlatform="azdatabricks">
+<dataProduct xmlns="https://github.com/Region-Skane-SDI/diml/dataproduct" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://github.com/Region-Skane-SDI/diml/dataproduct https://raw.githubusercontent.com/Region-Skane-SDI/diml-schemas/main/v0/dataproduct.xsd" dimlId="https://bki.skane.se/diml/dataproduct/id/15" targetPlatform="azdatabricks">
     <names>
         <name language="sv">SDI Hospital</name>
     </names>
@@ -101,7 +97,7 @@ targetPlatform="azdatabricks">
                 </column>
                 <column id="full_description">
                     <names>
-                        <name language="sv">full description</name>
+                        <name language="sv">full_description</name>
                     </names>
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
@@ -112,7 +108,7 @@ targetPlatform="azdatabricks">
                 </column>
                 <column id="category_title">
                     <names>
-                        <name language="sv">category title</name>
+                        <name language="sv">category_title</name>
                     </names>
                     <dimlDataType id="string" length="2000" format="" isFixedLength="false" isWideChar="false" originalDataType="varchar" originalPlatform="tsql" isNullable="true" />
                     <traits>
@@ -1148,32 +1144,114 @@ targetPlatform="azdatabricks">
     </dataOutputs>
     <dataFlow>
         <dataStages>
-            <dataStage id="Raw" type="tempStore" order="1" role="input" materialization="view" />
-            <dataStage id="ControlCast" type="typeCast" order="2" materialization="view" />
-            <dataStage id="ControlValidate" type="validate" order="3" materialization="table" />
-            <dataStage id="ControlHash" type="hash" order="4" materialization="table" />
-            <dataStage id="Storage" type="permaStore" order="5" role="output" materialization="table" />
+            <dataStage id="Raw" type="tempStore" order="1" role="input" materialization="view">
+                <traits></traits>
+                <dataStageTables>
+                    <dataStageTable tableId="healthcare_diagnosis" sourceTableId="healthcare_diagnosis">
+                        <columnMappings>
+                            <columnMapping columnId="full_description" sourceColumnId="full description" />
+                            <columnMapping columnId="category_title" sourceColumnId="category title" />
+                        </columnMappings>
+                    </dataStageTable>
+                    <dataStageTable sourceTableId="healthcare_encounters" tableId="healthcare_encounters" />
+                    <dataStageTable sourceTableId="healthcare_encounters_items" tableId="healthcare_encounters_items" />
+                    <dataStageTable sourceTableId="healthcare_hospitals" tableId="healthcare_hospitals" />
+                    <dataStageTable sourceTableId="healthcare_patient_diagnosis" tableId="healthcare_patient_diagnosis" />
+                    <dataStageTable sourceTableId="healthcare_patients" tableId="healthcare_patients" />
+                    <dataStageTable sourceTableId="healthcare_staffs" tableId="healthcare_staffs" />
+                    <dataStageTable sourceTableId="medication_brands" tableId="medication_brands" />
+                    <dataStageTable sourceTableId="medication_categories" tableId="medication_categories" />
+                    <dataStageTable sourceTableId="medication_drugs" tableId="medication_drugs" />
+                    <dataStageTable sourceTableId="medication_stocks" tableId="medication_stocks" />
+                </dataStageTables>
+            </dataStage>
+            <dataStage id="RawArchive" type="permaStore" order="2" materialization="view" />
+            <dataStage id="ControlLogicTrim" type="logic" order="3" materialization="view">
+                <dataStageTable tableId="healthcare_diagnosis" sourceTableId="healthcare_diagnosis" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_encounters" sourceTableId="healthcare_encounters" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_encounters_items" sourceTableId="healthcare_encounters_items" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_patient_diagnosis" sourceTableId="healthcare_patient_diagnosis" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_patients" sourceTableId="healthcare_patients" transformMethod="sql">
+                    <columnMappings>
+                        <columnMapping columnId="first_name" sourceColumnId="first_name" trimSqlExpression="TRIM(first_name)" />
+                        <columnMapping columnId="last_name" sourceColumnId="last_name" trimSqlExpression="TRIM(last_name)" />
+                        <columnMapping columnId="phone" sourceColumnId="phone" trimSqlExpression="TRIM(phone)" />
+                        <columnMapping columnId="email" sourceColumnId="email" trimSqlExpression="TRIM(email)" />
+                        <columnMapping columnId="street" sourceColumnId="street" trimSqlExpression="TRIM(street)" />
+                        <columnMapping columnId="city" sourceColumnId="city" trimSqlExpression="TRIM(city)" />
+                        <columnMapping columnId="state" sourceColumnId="state" trimSqlExpression="TRIM(state)" />
+                        <columnMapping columnId="zip_code" sourceColumnId="zip_code" trimSqlExpression="TRIM(zip_code)" />
+                        <columnMapping columnId="social_security_number" sourceColumnId="social_security_number" trimSqlExpression="TRIM(social_security_number)" />
+                    </columnMappings>
+                    <sqlLogicBlocks></sqlLogicBlocks>
+                </dataStageTable>
+                <dataStageTable tableId="healthcare_staffs" sourceTableId="healthcare_staffs" transformMethod="sql" />
+                <dataStageTable tableId="medication_brands" sourceTableId="medication_brands" transformMethod="sql" />
+                <dataStageTable tableId="medication_categories" sourceTableId="medication_categories" transformMethod="sql" />
+                <dataStageTable tableId="medication_drugs" sourceTableId="medication_drugs" transformMethod="sql" />
+                <dataStageTable tableId="medication_stocks" sourceTableId="medication_stocks" transformMethod="sql" />
+            </dataStage>            
+            <dataStage id="ControlLogicCustom" type="logic" order="4" materialization="view">
+                <dataStageTable tableId="healthcare_diagnosis" sourceTableId="healthcare_diagnosis" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_encounters" sourceTableId="healthcare_encounters" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_encounters_items" sourceTableId="healthcare_encounters_items" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_patient_diagnosis" sourceTableId="healthcare_patient_diagnosis" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_patients" sourceTableId="healthcare_patients" transformMethod="sql">
+                    <columnMappings>
+                        <columnMapping columnId="social_security_number" sourceColumnId="social_security_number" customSqlExpression="LEFT(social_security_number, 10)" />
+                    </columnMappings>
+                    <sqlLogicBlocks></sqlLogicBlocks>
+                </dataStageTable>
+                <dataStageTable tableId="healthcare_staffs" sourceTableId="healthcare_staffs" transformMethod="sql" />
+                <dataStageTable tableId="medication_brands" sourceTableId="medication_brands" transformMethod="sql" />
+                <dataStageTable tableId="medication_categories" sourceTableId="medication_categories" transformMethod="sql" />
+                <dataStageTable tableId="medication_drugs" sourceTableId="medication_drugs" transformMethod="sql" />
+                <dataStageTable tableId="medication_stocks" sourceTableId="medication_stocks" transformMethod="sql" />
+            </dataStage>
+            <dataStage id="ControlLogicFilter" type="logic" order="3" materialization="view">
+                <dataStageTable tableId="healthcare_diagnosis" sourceTableId="healthcare_diagnosis" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_encounters" sourceTableId="healthcare_encounters" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_encounters_items" sourceTableId="healthcare_encounters_items" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_patient_diagnosis" sourceTableId="healthcare_patient_diagnosis" transformMethod="sql" />
+                <dataStageTable tableId="healthcare_patients" sourceTableId="healthcare_patients" transformMethod="sql">
+                    <columnMappings>
+                        <columnMapping columnId="first_name" sourceColumnId="first_name" filterSqlExpression="= 'Anders'" />
+                        <columnMapping columnId="first_name" sourceColumnId="first_name" filterSqlExpression="!= 'GDPR'" />
+                        <columnMapping columnId="social_security_number" sourceColumnId="social_security_number" filterSqlExpression="IS NOT NULL" /> />
+                    </columnMappings>
+                    <sqlLogicBlocks></sqlLogicBlocks>
+                </dataStageTable>
+                <dataStageTable tableId="healthcare_staffs" sourceTableId="healthcare_staffs" transformMethod="sql" />
+                <dataStageTable tableId="medication_brands" sourceTableId="medication_brands" transformMethod="sql" />
+                <dataStageTable tableId="medication_categories" sourceTableId="medication_categories" transformMethod="sql" />
+                <dataStageTable tableId="medication_drugs" sourceTableId="medication_drugs" transformMethod="sql" />
+                <dataStageTable tableId="medication_stocks" sourceTableId="medication_stocks" transformMethod="sql" />
+            </dataStage>                
+            <dataStage id="ControlCast" type="typeCast" order="5" materialization="view" />
+            <dataStage id="ControlValidate" type="validate" order="6" materialization="table" />
+            <dataStage id="ControlHash" type="hash" order="7" materialization="table" />
+            <dataStage id="Storage" type="permaStore" order="8" role="output" materialization="table" />
         </dataStages>
         <dataIngests>
             <dataIngest id="ingest" dataInputId="src1">
-                <tableToTableMappings>
-                    <tableToTableMapping sourceTableId="healthcare_diagnosis" tableId="healthcare_diagnosis">
+                <mappings>
+                    <sqlToTableMapping sourceTableId="healthcare_diagnosis" tableId="healthcare_diagnosis">
                         <columnMappings>
                             <columnMapping sourceColumnId="full description" columnId="full_description" />
                             <columnMapping sourceColumnId="category title" columnId="category_title" />
                         </columnMappings>
-                    </tableToTableMapping>
-                    <tableToTableMapping sourceTableId="healthcare_encounters" tableId="healthcare_encounters" />
-                    <tableToTableMapping sourceTableId="healthcare_encounters_items" tableId="healthcare_encounters_items" />
-                    <tableToTableMapping sourceTableId="healthcare_hospitals" tableId="healthcare_hospitals" />
-                    <tableToTableMapping sourceTableId="healthcare_patient_diagnosis" tableId="healthcare_patient_diagnosis" />
-                    <tableToTableMapping sourceTableId="healthcare_patients" tableId="healthcare_patients" />
-                    <tableToTableMapping sourceTableId="healthcare_staffs" tableId="healthcare_staffs" />
-                    <tableToTableMapping sourceTableId="medication_brands" tableId="medication_brands" />
-                    <tableToTableMapping sourceTableId="medication_categories" tableId="medication_categories" />
-                    <tableToTableMapping sourceTableId="medication_drugs" tableId="medication_drugs" />
-                    <tableToTableMapping sourceTableId="medication_stocks" tableId="medication_stocks" />
-                </tableToTableMappings>
+                    </sqlToTableMapping>
+                    <sqlToTableMapping sourceTableId="healthcare_encounters" tableId="healthcare_encounters" />
+                    <sqlToTableMapping sourceTableId="healthcare_encounters_items" tableId="healthcare_encounters_items" />
+                    <sqlToTableMapping sourceTableId="healthcare_hospitals" tableId="healthcare_hospitals" />
+                    <sqlToTableMapping sourceTableId="healthcare_patient_diagnosis" tableId="healthcare_patient_diagnosis" />
+                    <sqlToTableMapping sourceTableId="healthcare_patients" tableId="healthcare_patients" />
+                    <sqlToTableMapping sourceTableId="healthcare_staffs" tableId="healthcare_staffs" />
+                    <sqlToTableMapping sourceTableId="medication_brands" tableId="medication_brands" />
+                    <sqlToTableMapping sourceTableId="medication_categories" tableId="medication_categories" />
+                    <sqlToTableMapping sourceTableId="medication_drugs" tableId="medication_drugs" />
+                    <sqlToTableMapping sourceTableId="medication_stocks" tableId="medication_stocks" />
+                </mappings>
             </dataIngest>
         </dataIngests>
     </dataFlow>
